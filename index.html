@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Playbook operacional com IA para gerenciar workflow completo de dropshipping">
+    <title>Playbook Dropshipping AI - Workflow Completo</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .step-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .completed {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container Principal -->
+    <div class="min-h-screen p-4 md:p-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header -->
+            <header class="text-center mb-10 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    🚀 Workflow AI Dropshipping
+                </h1>
+                <p class="text-white/80 text-lg">
+                    Sistema completo de gestão com especialistas de IA
+                </p>
+                <div class="mt-4">
+                    <span class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-full text-sm font-semibold">
+                        <span class="w-2 h-2 bg-white rounded-full mr-2 pulse-animation"></span>
+                        Sistema Operacional
+                    </span>
+                </div>
+            </header>
+
+            <!-- Barra de Progresso -->
+            <div class="glass-effect rounded-xl p-6 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-semibold text-gray-800">Progresso do Pipeline</h3>
+                    <span class="text-sm text-gray-600">
+                        <span id="completed">0</span> de 6 etapas concluídas
+                    </span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Grid de Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Caçador de Tendências -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            🎯
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">Caçador de Tendências</h3>
+                            <p class="text-sm text-gray-600">Mineração de produtos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68c90a7117208191b8431e847f539881-cacador-de-tendencias" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white text-center rounded-lg hover:from-red-600 hover:to-red-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-red-800">📋 Tarefas:</p>
+                            <ul class="text-xs text-red-700 mt-1 space-y-1">
+                                <li>• Definir nicho de atuação</li>
+                                <li>• Analisar tendências atuais</li>
+                                <li>• Identificar 20 produtos potenciais</li>
+                            </ul>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card 2: O Analista -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            🕵️
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">O Analista</h3>
+                            <p class="text-sm text-gray-600">Análise de viabilidade</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68c8b9a2e6a88191870120d5c65b02c4-analista-de-produtos-vencedores" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white text-center rounded-lg hover:from-green-600 hover:to-green-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-green-800">📋 Input Hierárquico:</p>
+                            <ol class="text-xs text-green-700 mt-1 space-y-1">
+                                <li>1️⃣ Link do anúncio viral</li>
+                                <li>2️⃣ Página do produto</li>
+                                <li>3️⃣ Link do fornecedor</li>
+                            </ol>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card 3: Estrategista -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="3">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gray-500 to-gray-700 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            ♟️
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">Estrategista</h3>
+                            <p class="text-sm text-gray-600">Classificação do produto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68cb0e4fc8e88191a22611f4cd549391-estrategista-de-portifolio" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-gray-600 to-gray-700 text-white text-center rounded-lg hover:from-gray-700 hover:to-gray-800 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-gray-50 border-l-4 border-gray-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-gray-800">📋 Classificação:</p>
+                            <div class="text-xs text-gray-700 mt-1 space-y-1">
+                                <p>💰 Produto Lucrativo (rápido)</p>
+                                <p>🏆 Produto Vencedor (escalar)</p>
+                            </div>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card 4: Copywriter -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="4">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            ✍️
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">Copywriter</h3>
+                            <p class="text-sm text-gray-600">Criação de copy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68c8c34c285081919757c4d7d1efbc06-copywriter-estrategista-45" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center rounded-lg hover:from-blue-600 hover:to-blue-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-blue-800">📋 Elementos essenciais:</p>
+                            <ul class="text-xs text-blue-700 mt-1 space-y-1">
+                                <li>✓ Headline matadora</li>
+                                <li>✓ Benefícios claros</li>
+                                <li>✓ Call-to-action forte</li>
+                                <li>✓ Garantia e urgência</li>
+                            </ul>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card 5: Mestre dos Criativos -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="5">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            🎬
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">Mestre Criativos</h3>
+                            <p class="text-sm text-gray-600">Roteiro de vídeo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68c8c73797288191a954864bacfeb06d-mestre-dos-criativos" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center rounded-lg hover:from-purple-600 hover:to-purple-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-purple-800">📋 Formato de vídeo:</p>
+                            <ul class="text-xs text-purple-700 mt-1 space-y-1">
+                                <li>🎥 15-30 segundos</li>
+                                <li>📱 9:16 (vertical)</li>
+                                <li>🎬 Storyboard com 5-7 cenas</li>
+                            </ul>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card 6: Artista Digital -->
+                <div class="step-card glass-effect rounded-2xl p-6" data-step="6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                            🎨
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold text-gray-800">Artista Digital</h3>
+                            <p class="text-sm text-gray-600">Geração de imagens</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <a href="https://chatgpt.com/g/g-68c8ce400e588191864005c1be2eca80-artista-digital-prompt-engineer" 
+                           target="_blank" 
+                           class="block w-full px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-center rounded-lg hover:from-amber-600 hover:to-amber-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Abrir GPT
+                        </a>
+                        
+                        <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded">
+                            <p class="text-xs font-semibold text-amber-800">📋 Formatos de saída:</p>
+                            <ul class="text-xs text-amber-700 mt-1 space-y-1">
+                                <li>📱 Feed: 1080x1080</li>
+                                <li>📱 Stories: 1080x1920</li>
+                                <li>🖼️ Carrossel: até 10 imagens</li>
+                            </ul>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2 w-4 h-4" onchange="updateProgress()">
+                            <span class="text-sm">Marcar como concluída</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="flex justify-center mt-8 space-x-4">
+                <button onclick="resetAll()" class="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition flex items-center">
+                    <i class="fas fa-redo mr-2"></i>Resetar Workflow
+                </button>
+                <button onclick="saveState()" class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition flex items-center">
+                    <i class="fas fa-save mr-2"></i>Salvar Progresso
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-12 text-white/60 text-sm">
+                <p>💡 Dica: Marque cada etapa conforme for completando para acompanhar seu progresso</p>
+                <p class="mt-2">Desenvolvido com ❤️ para otimizar seu workflow de dropshipping</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            const progress = (checked.length / checkboxes.length) * 100;
+            
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('completed').textContent = checked.length;
+            
+            // Atualizar visual dos cards
+            checkboxes.forEach((checkbox, index) => {
+                const card = checkbox.closest('.step-card');
+                if (checkbox.checked) {
+                    card.classList.add('completed');
+                    card.style.opacity = '0.9';
+                } else {
+                    card.classList.remove('completed');
+                    card.style.opacity = '1';
+                }
+            });
+            
+            // Salvar no localStorage
+            saveState();
+            
+            // Mostrar notificação se completou tudo
+            if (checked.length === checkboxes.length) {
+                setTimeout(() => {
+                    alert('🎉 Parabéns! Você completou todo o workflow!');
+                }, 500);
+            }
+        }
+
+        function saveState() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const state = Array.from(checkboxes).map(cb => cb.checked);
+            localStorage.setItem('workflowState', JSON.stringify(state));
+        }
+
+        function resetAll() {
+            if (confirm('Tem certeza que deseja resetar todo o workflow?')) {
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                updateProgress();
+                localStorage.removeItem('workflowState');
+            }
+        }
+
+        // Restaurar estado ao carregar
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedState = localStorage.getItem('workflowState');
+            if (savedState) {
+                const state = JSON.parse(savedState);
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = state[index] || false;
+                });
+                updateProgress();
+            }
+        });
+    </script>
+</body>
+</html>
